@@ -1,7 +1,6 @@
 import { AwserQuestionUseCase } from "./awser-question";
-import { test, expect } from 'vitest';
-import { AwserRepository } from './../repository/awser-repository';
 import { Awser } from "../entities/awser";
+import { AwserRepository } from './../repository/awser-repository';
 
 test('create an awser', async () => {
     const fakeAwserRepository = new class FakeAwserRepository implements AwserRepository {
