@@ -1,26 +1,26 @@
-import { Question } from '../../enterprise/entities/question'
-import { QuestionsRepository } from '../repositories/questions-repository'
+import { InMemoryQuestionsRepository } from 'src/test/repositories/in-memory-questions-repository'
 import { CreateQuestionUseCase } from './create-question'
-test('create an question', async () => {
-  const fakeQuestionsRepository = new (class FakeQuestionsRepository
-    implements QuestionsRepository
-  {
-    private list: Question[] = []
-    async create(awser: Question): Promise<void> {
-      this.list.push(awser)
+
+let inMemoryQuestionsRepository: InMemoryQuestionsRepository
+let suit: CreateQuestionUseCase
+
+describe('create an question', () => {
+  beforeEach(() => {
+    inMemoryQuestionsRepository = new InMemoryQuestionsRepository()
+    suit = new CreateQuestionUseCase(inMemoryQuestionsRepository)
+  })
+
+  it('should be able to create a question', async () => {
+    const props = {
+      authorId: '1',
+      title: 'How codend Typescript',
+      content: 'dsbvsvbvsdbvsikdvbis',
     }
-  })()
-  const createQuestion = new CreateQuestionUseCase(fakeQuestionsRepository)
 
-  const props = {
-    authorId: '1',
-    title: 'How codend Typescript',
-    content: 'dsbvsvbvsdbvsikdvbis',
-  }
+    const { question } = await suit.execute(props)
 
-  const { question } = await createQuestion.execute(props)
-
-  expect(question.content).toEqual(props.content)
-  expect(question.title).toEqual(props.title)
-  expect(question.id).toBeTruthy()
+    expect(question.content).toEqual(props.content)
+    expect(question.title).toEqual(props.title)
+    expect(question.id).toBeTruthy()
+  })
 })
