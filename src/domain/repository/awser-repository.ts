@@ -1,5 +1,5 @@
-import { Awser } from "../entities/awser";
+import { Awser } from '../entities/awser'
 
 export interface AwserRepository {
-    create(awser: Awser): Promise<void>
+  create(awser: Awser): Promise<void>
 }
