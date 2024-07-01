@@ -1,6 +1,6 @@
+import { Awser } from '../../enterprise/entities/awser'
+import { AwserRepository } from '../repositories/awser-repository'
 import { AwserQuestionUseCase } from './awser-question'
-import { Awser } from '../entities/awser'
-import { AwserRepository } from './../repository/awser-repository'
 
 test('create an awser', async () => {
   const fakeAwserRepository = new (class FakeAwserRepository

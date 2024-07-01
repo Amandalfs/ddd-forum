@@ -1,6 +1,6 @@
-import { Awser } from '../entities/awser'
-import { AwserRepository } from './../repository/awser-repository'
-import { UniqueEntityId } from './../../core/entities/unique-entity-id'
+import { UniqueEntityId } from 'src/core/entities/unique-entity-id'
+import { Awser } from '../../enterprise/entities/awser'
+import { AwserRepository } from '../repositories/awser-repository'
 
 interface AwserQuestionUseCaseRequest {
   instructorId: string
