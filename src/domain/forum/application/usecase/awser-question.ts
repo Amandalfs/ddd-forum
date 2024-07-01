@@ -1,6 +1,6 @@
 import { UniqueEntityId } from 'src/core/entities/unique-entity-id'
 import { Awser } from '../../enterprise/entities/awser'
-import { AwserRepository } from '../repositories/awser-repository'
+import { AwsersRepository } from '../repositories/awsers-repository'
 
 interface AwserQuestionUseCaseRequest {
   instructorId: string
@@ -9,7 +9,7 @@ interface AwserQuestionUseCaseRequest {
 }
 
 export class AwserQuestionUseCase {
-  constructor(private awserRepository: AwserRepository) {}
+  constructor(private awsersRepository: AwsersRepository) {}
   async execute({
     instructorId,
     questionId,
@@ -21,7 +21,7 @@ export class AwserQuestionUseCase {
       questionId: new UniqueEntityId(questionId),
     })
 
-    await this.awserRepository.create(awser)
+    await this.awsersRepository.create(awser)
 
     return awser
   }

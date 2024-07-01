@@ -1,5 +1,5 @@
 import { Awser } from '../../enterprise/entities/awser'
 
-export interface AwserRepository {
+export interface AwsersRepository {
   create(awser: Awser): Promise<void>
 }
