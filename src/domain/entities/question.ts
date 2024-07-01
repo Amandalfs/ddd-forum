@@ -51,17 +51,11 @@ export class Question extends Entity<QuestionProps> {
 
     /**
      * The `experpt` getter returns a brief excerpt of the content.
-     *
      * @returns {string} A string that contains the first 120 characters of the content,
      * trimmed of any trailing whitespace and followed by an ellipsis (`...`).
      *
-     * The purpose of this getter is to provide a concise preview of the content,
-     * which can be useful for displaying summaries or snippets in user interfaces.
-     *
      * @example
-     * // Assuming `content` is "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-     * const excerpt = this.excerpt;
-     * // excerpt will be "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et..."
+     * "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et..."
      */
     get experpt(){
         return this.content.substring(0, 120).trimEnd().concat('...')
