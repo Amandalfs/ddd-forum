@@ -21,4 +21,6 @@ test('create an question', async () => {
   const { question } = await createQuestion.execute(props)
 
   expect(question.content).toEqual(props.content)
+  expect(question.title).toEqual(props.title)
+  expect(question.id).toBeTruthy()
 })
